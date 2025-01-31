@@ -77,3 +77,55 @@ DELETE	/api/carts/:cid/products/:pid	Eliminar un producto del carrito	Enviar cid
 
 ver imagenes probando la API con thunderclient
 (https://drive.google.com/drive/folders/1IeDtFuWMVvq1z7cBReciAFyqmAfW9DYx?usp=sharing)
+
+Endpoints para users (Usuarios)
+POST	/api/users	Crear un usuario	Enviar un JSON con name, email, role
+GET	/api/users	Obtener todos los usuarios	Navegar a http://localhost:8080/api/users
+GET	/api/users/:uid	Obtener un usuario por ID	http://localhost:8080/api/users/12345
+PUT	/api/users/:uid	Actualizar un usuario	Enviar un JSON con los datos a modificar
+DELETE	/api/users/:uid	Eliminar un usuario	Enviar el ID del usuario a eliminar
+
+📌 Ejemplo de JSON para crear un usuario (POST /api/users)
+
+json
+Copiar
+Editar
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "role": "customer"
+}
+📌 Ejemplo de JSON para actualizar un usuario (PUT /api/users/:uid)
+
+json
+Copiar
+Editar
+{
+  "email": "newemail@example.com",
+  "role": "admin"
+}
+
+
+📌 Endpoints para carts (Carritos de compras)
+Estos endpoints permiten manejar carritos de compras, agregar productos y consultar su contenido.
+
+Método	Endpoint	Descripción	Ejemplo de uso
+POST	/api/carts/:uid/products/:pid	Agregar un producto al carrito del usuario	Enviar un JSON con quantity
+GET	/api/carts/:cid	Obtener los productos de un carrito	http://localhost:8080/api/carts/12345
+DELETE	/api/carts/:cid/products/:pid	Eliminar un producto del carrito	Enviar cid (ID del carrito) y pid (ID del producto)
+📌 Ejemplo de JSON para agregar un producto al carrito (POST /api/carts/:uid/products/:pid)
+
+json
+Copiar
+Editar
+{
+  "quantity": 2
+}
+📌 Ejemplo de JSON para eliminar un producto del carrito (DELETE /api/carts/:cid/products/:pid)
+
+json
+Copiar
+Editar
+{
+  "productId": "66da9905-631a-4def-8daa-8925cd01454d"
+}
